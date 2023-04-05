@@ -25,8 +25,14 @@ SECRET_KEY = 'django-insecure-s_u)^@m&$c)!h@waypoa=!nzg!jw&ms9m&e0%-((57hgckedly
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['*', '.herokuapp.com']
 
+# Enabling Cors: https://stackoverflow.com/a/44037631
+CORS_ORIGIN_ALLOW_ALL = True
+
+# Fix shitty css issue, maybe
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 # Application definition
 
@@ -39,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
     'todo',
 ]
 
@@ -51,6 +58,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
