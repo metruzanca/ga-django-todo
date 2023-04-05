@@ -40,20 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework_simplejwt',
+    # 'rest_framework_simplejwt',
     'corsheaders',
     'todo',
 ]
 
-REST_FRAMEWORK = {
-    # 'DEFAULT_FILTER_BACKENDS': [
-    #     'django_filters.rest_framework.DjangoFilterBackend',
-    # ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'django.contrib.auth.backends.ModelBackend',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-}
+# REST_FRAMEWORK = {
+#     # 'DEFAULT_FILTER_BACKENDS': [
+#     #     'django_filters.rest_framework.DjangoFilterBackend',
+#     # ],
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         # 'django.contrib.auth.backends.ModelBackend',
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     )
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
