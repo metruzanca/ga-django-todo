@@ -30,10 +30,6 @@ ALLOWED_HOSTS = ['*', '.herokuapp.com']
 # Enabling Cors: https://stackoverflow.com/a/44037631
 CORS_ORIGIN_ALLOW_ALL = True
 
-# Fix shitty css issue, maybe
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,7 +46,11 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
+    # 'DEFAULT_FILTER_BACKENDS': [
+    #     'django_filters.rest_framework.DjangoFilterBackend',
+    # ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'django.contrib.auth.backends.ModelBackend',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
